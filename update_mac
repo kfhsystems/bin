@@ -1,0 +1,20 @@
+#!/bin/sh
+if [ -z $1 ] 
+
+	then
+		echo "Retrieving available updates..."
+		echo ""
+		sudo softwareupdate -l
+		echo "To update a package, use the flag '-i' or '--install': "
+		echo "=> softwareupdate -i  <pkg_name> "
+		echo "or to update all available updates:"
+		echo "=> softwareupdate -i -a ( or -install --all )"
+		echo "You can also use this program to install a package [ no options allowed ] "
+		echo "=> update_mac  <pkg_name>"
+		echo "..."
+		
+else
+	sudo softwareupdate  -i $1
+fi
+
+

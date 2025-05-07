@@ -1,0 +1,2 @@
+#!/bin/sh
+rsync -avzh /Users/khasanov/Projects/WebDev/Website/iCloudSBS/site/ khasanov@10.10.10.120:/opt/www/karshi.ca

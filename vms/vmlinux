@@ -1,0 +1,2 @@
+#!/bin/sh
+ /Applications/VMware\ Fusion.app/Contents/Library/vmrun start /Users/khasanov/VM/Fusion/MXLinux.vmwarevm &

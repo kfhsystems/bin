@@ -1,0 +1,28 @@
+#!/bin/sh
+# Format: Day/Month/Year  Hour/Minute/Second
+DATE_TIME=$(date "+DATE: %d/%m/%Y TIME: %H:%M:%S")
+SRC_DIR="/Volumes/My_Book/Datacenter/DC_IT"
+DEST_DIR="/Volumes/IT"
+LOG_DIR="/Users/khasanov/var/log"
+LOG_FILE="${LOG_DIR}/IT_to_DC.log"
+RSYNC_DIR="/opt/local/bin"
+
+echo "Removing '.DC_Store' from the ${SRC_DIR}"
+find ${SRC_DIR} -name .DC_Store -exec rm '{}' \;
+echo "...done!"
+
+echo "Checking if ${DEST_DIR} mounted"
+if (mount | grep ${DEST_DIR}); then
+	if (${RSYNC_DIR}/rsync -avz ${SRC_DIR}/ ${DEST_DIR}); then
+		echo "${DATE_TIME}  RESULT : SUCCESS" >> ${LOG_FILE}
+		exit 0
+	else
+		echo "${DATE_TIME}  RESULT : FAILED" >> ${LOG_FILE}
+		exit 1
+	fi
+else
+	echo "Looks like ${DEST_DIR} does NOT exist!"
+	echo "Please mount to the ${DEST_DIR} and run the program again."
+	exit 1
+fi
+

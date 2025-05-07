@@ -1,0 +1,3 @@
+#!/bin/sh
+cd /Volumes/KFH/KFH_Development/Web-Dev/Frameworks/Projects/Express/KfhGPT
+pm2 start bin/gpt_server
