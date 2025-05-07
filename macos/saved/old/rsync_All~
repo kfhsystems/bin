@@ -1,0 +1,50 @@
+#!/bin/sh
+
+# First check that the LOG dataset is mounted
+# on the local PC: 
+# [khasanov@imac /backups]$ df | grep DC_Log
+# Output:  //root@data-srv/DC_Log  --> /Volumes/DC_Log 
+
+
+LOG_DIR="/Volumes/DC_Log"
+if (!(mount | grep ${LOG_DIR})); then
+	echo "Error: The ${LOG_DIR} is NOT mounted !"
+		        
+	exit 10
+fi
+echo "*************************" >> ${LOG_DIR}/DC_Log.log
+
+echo "*********************"
+echo "...rsyncing the Main"
+rsync_Main
+echo "...done"
+echo "*********************"
+
+
+echo "*********************"
+echo "...rsyncing the Library"
+rsync_Library
+echo "...done"
+echo "*********************"
+
+
+echo "*********************"
+echo "...rsyncing the Projects"
+rsync_Projects
+echo "...done"
+echo "*********************"
+
+
+echo "*********************"
+echo "...rsyncing the Training"
+rsync_Training
+echo "...done"
+echo "*********************"
+
+
+echo "*********************"
+echo "...rsyncing the Audio-Video"
+rsync_Audio-Video
+echo "...done"
+echo "*********************"
+echo " " >> ${LOG_DIR}/DC_Log.log

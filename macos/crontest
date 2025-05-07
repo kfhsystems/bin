@@ -1,0 +1,5 @@
+#!/bin/sh
+# Format: Day/Month/Year  Hour:Minute:Second
+DATE_TIME=$(/bin/date "+DATE: %d/%m/%Y TIME: %H:%M:%S")
+echo "${DATE_TIME} - The cron for 'khasanov' is working!" >> /Users/khasanov/tmp/cron.log
+

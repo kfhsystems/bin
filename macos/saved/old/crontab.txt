@@ -1,0 +1,4 @@
+SHELL=/bin/sh
+PATH=/sbin:/bin:/usr/bin:/usr/local/bin:/Users/khasanov/bin/backups
+
+00	06	*	*	*	/Users/khasanov/bin/backups/rsync_all

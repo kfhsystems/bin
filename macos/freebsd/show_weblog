@@ -1,0 +1,38 @@
+#!/bin/sh
+# Written by Karshi Hasanov
+# Last modified : October 30, 2015
+# To debug set 'set -xv'
+
+if [ ${1} = "help" ] || [ ${1} = "-h" ] || [ ${1} = "--help" ]
+	then
+            echo " Usage: 
+			=> show_weblog <website> <log type>
+                        # The logs can be '-a' , '--acces', '-e', '--error'
+                        => show_weblog www.karshi.ca --access
+
+			# You can also use it to view the mail log:
+			=> show_weblog maillog
+                 "
+             exit 1
+		
+fi
+
+LOG_DIR="/var/log"
+WEBSITE=${1}
+OPTION=${2}
+
+if [ "${2}" = "-a" ] || [ "${2}" =  "--access" ]
+	then 
+		tail -f "${LOG_DIR}/${WEBSITE}-access.log"
+
+	elif [ "${2}" = "-e" ] || [ "${2}" =  "-error" ]
+		then
+			tail -f "${LOG_DIR}/${WEBSITE}-error.log"
+	elif [ "${1}" = "maillog" ]
+		then 
+			tail -f "${LOG_DIR}/maillog"
+
+	else
+		echo " To get a help: => show_weblog help | -h | --help" 
+
+fi

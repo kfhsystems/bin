@@ -1,0 +1,9 @@
+#!/bin/sh
+test=$(/usr/local/bin/screenfetch)
+if [ $?  -ne 0 ]
+	then
+            echo /usr/local/bin/screenfetch
+            echo "You need to install the 'screenfetch'!"
+            echo "=> brew install screenfetch "
+fi
+/usr/local/bin/screenfetch

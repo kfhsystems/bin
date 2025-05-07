@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+/Applications/PDFelement.app/Contents/MacOS/PDFelement $1  

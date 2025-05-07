@@ -1,0 +1,13 @@
+#!/bin/sh
+echo "karshi.hasanov@gmail.com"
+echo "Acoount Name: Karshi Hasanov"
+echo " Password: BASE + company"
+echo ""
+echo "peterson.compton@gmail.com"
+echo "Account Name: Peterson Compton"
+echo "Password: AlKFH987y"
+echo ""
+
+echo " shwan.compton@gmail.com"
+echo " Account Name: Shawn Comtpon "
+echo " Password: AlKFH987y"

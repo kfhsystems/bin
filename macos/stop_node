@@ -1,0 +1,27 @@
+#!/bin/sh
+#: Written by KFH: karshi.hasanov@utoronto.ca
+#: Date: May 1, 2018
+#: Description: I was too lazy to kill the Node.js server
+#:              So, decided to write a code to make my life easy.
+#: Last Modified:
+
+PORT=${1}
+if [ ${PORT} ]; then
+	PID=$(lsof -i:${PORT} | grep node | awk '{print $2}')
+        EXIT_STATUS=`echo $?`
+	
+	# If $PID has a value:
+        if [ ${PID} ]; then
+		kill -9 ${PID}
+                echo "The exit status is ${EXIT_STATUS} " 
+                exit 0
+        # If no $PID return:
+	else
+		echo "Looks like no server is running on the Port: ${PORT}"
+	        exit 0
+        fi
+	
+else
+	echo " Usage: stop_nserver <port number>"
+	exit 1
+fi

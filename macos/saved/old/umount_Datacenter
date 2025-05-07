@@ -1,0 +1,7 @@
+#/bin/bash
+MOUNT_DIR="/Users/khasanov/mnt/Datacenter"
+if (mount | grep ${MOUNT_DIR}); then
+	umount ${MOUNT_DIR}
+	exit 0
+fi
+

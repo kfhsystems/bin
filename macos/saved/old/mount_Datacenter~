@@ -1,0 +1,9 @@
+#/bin/bash
+MOUNT_DIR="/Users/khasanov/mnt/Datacenter"
+if (mount | grep ${MOUNT_DIR}); then
+	echo "The ${MOUNT_DIR} is already mounted !!!"
+	exit 0
+else
+	sudo mount -t smbfs //root:hassan3@10.10.10.100/Datacenter ${MOUNT_DIR}
+fi
+
