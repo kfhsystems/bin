@@ -1,5 +1,0 @@
-#!/bin/sh
-
-/Applications/VMware\ Fusion.app/Contents/Library/vmrun $1
-                
-

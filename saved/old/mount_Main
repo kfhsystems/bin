@@ -1,9 +1,0 @@
-#/bin/bash
-MOUNT_DIR="/Users/khasanov/mnt/DC_Main"
-if (mount | grep ${MOUNT_DIR}); then
-	exit 0
-else
-	mount -t smbfs //khasanov:hassan3@10.10.10.100/DC_Main ${MOUNT_DIR}
-        exit 0
-fi
-

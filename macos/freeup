@@ -1,3 +1,1 @@
-#!/bin/sh
-# This will clean up the inactive memory in the system
-sudo purge
+freeup_memory

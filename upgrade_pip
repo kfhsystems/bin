@@ -1,5 +1,0 @@
-# Date: Oct.30, 2019
-# This code upgrade the PIP (pip3) as a user "khasanov"
-# Its only for this user!
-# The installation directory: /Users/khasanov/Library/Python/3.7
-pip3 install --user --upgrade pip

@@ -1,4 +1,1 @@
-#!/bin/sh
-# The root folder:
-# /Volumes/KFH/KFH_Development/Programming/Python/jupyterlab/
-jupyter lab --no-browser --ip=172.16.100.110 --port=1968 & disown
+kfh_jupyter
