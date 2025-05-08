@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+rsync -avz /Users/khasanov/bin/ /Users/khasanov/repo/bin/macos

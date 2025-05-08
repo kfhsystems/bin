@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# Date: May 8, 2025
+# Description: It will check a YAML formatting.
+
+
+# Number of arguments passed:
+num_args="$#"
+if [ "$num_args" -eq 1 ]; then
+   sed -i 's/[ \t]*$//' $1
+   yamllint $1
+else
+   # Remove a white spaces from a file 
+   # The ${@: -1} means a last argument in the passwed args
+   sed -i 's/[ \t]*$//' ${@: -1}
+   ansible-playbook --check ${@: -1}
+fi
+
+
+### `yamllint`
+
+# **Purpose**: `yamllint` is a linter specifically designed to analyze YAML files for formatting issues 
+# and style guidelines. It checks for syntax errors, indentation issues, and other stylistic problems in the YAML files.
+
+# **Functionality**: It does not execute the playbook or any other Ansible code. 
+# Instead, it focuses solely on the structure and syntax of the YAML content to ensure it adheres to YAML standards.
+
+# **Use Case**: Use `yamllint` when you want to ensure that your YAML files (like Ansible playbooks and variable files) 
+# are properly formatted and free of syntax errors. It helps catch simple mistakes like indentation errors or incorrect use of colons.
+
+### `ansible-playbook --check`
+
+# **Purpose**: The `ansible-playbook --check` command runs an Ansible playbook in "check mode" or "dry run" mode. 
+# It simulates what actions would be taken without actually making any changes to the target systems.
+
+# **Functionality**: During a dry run, Ansible will parse the playbook, verify the tasks and modules, 
+# and present a summary of what changes would occur if the playbook were executed normally. 
+# It is useful for catching issues related to task execution, such as missing modules or incorrect parameters.
+
+# **Use Case**: Use `ansible-playbook --check` when you want to verify how the playbook would behave on the target 
+# systems without making any actual modifications. 
+# This helps you catch issues related to the logic of your playbook and how it interacts with your Ansible inventory and managed hosts.
+
+### Summary
+
+# **`yamllint`**: Checks YAML syntax and style; does not execute playbooks.
+# **`ansible-playbook --check`**: Simulates playbook execution; verifies tasks without making changes.
