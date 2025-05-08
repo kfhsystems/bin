@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+rsync -avz /home/khasanov/bin/ /home/khasanov/repo/bin/linux
